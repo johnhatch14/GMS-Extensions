@@ -8,5 +8,5 @@
  ***************************************************/
 with (o_PiwikTracker)
 {
- _piwikSendBasicReq("e_c="+argument0, "e_a="+argument1, "e_n="+argument2, "e_v="+argument3);
+ _piwikSendBasicReq("e_c="+argument0, "e_a="+argument1, "e_n="+argument2, "e_v="+string(argument3));
 }

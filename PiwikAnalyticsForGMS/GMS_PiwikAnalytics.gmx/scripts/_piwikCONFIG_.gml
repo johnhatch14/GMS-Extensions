@@ -27,3 +27,8 @@ _Piwik_IniFile = "visitor.pwk";
 
 //Whether to track the start of every room by default
 _Piwik_TrackRoomStart = true;
+
+//The minumum custom variable index that can be used in piwikTrackCustomVar.
+//Lower values are used to report OS, browser, and other device configuration info.
+//***DON'T CHANGE THIS!***
+_Piwik_MinCvarIndex = 5;

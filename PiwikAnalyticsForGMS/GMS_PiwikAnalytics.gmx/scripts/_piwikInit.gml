@@ -14,10 +14,6 @@ GM_Piwik_httpID_cacheReq = -1;
 //Apply Configuration
 _piwikCONFIG_();
 
-//The minumum custom variable index that can be used in piwikTrackCustomVar. Lower values are used to report OS, browser, and config.
-//DON'T CHANGE!
-_Piwik_MinCvarIndex = 5;
-
 //Load the stored piwik ini data file, creating it if it does not exist.
       ini_open(_Piwik_IniFile);
       if (file_exists(_Piwik_IniFile) && ini_section_exists("visitor")) //If data file is present and intact...
