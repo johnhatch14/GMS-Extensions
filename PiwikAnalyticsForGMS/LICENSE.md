@@ -1,4 +1,4 @@
-# Licence
+# License
 Copyright (c) 2015 John Hatch
 
 Licensed under the MIT License (MIT)
