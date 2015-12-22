@@ -19,10 +19,10 @@ Piwik (https://piwik.org) is a nice open source alternative to something like Go
 If you have everything set up correctly, the extension will send a tracking request to your Piwik server when your game starts that will include various details about the device the game is running on.
 
 # Setting up PHP Cached Request Processor
-When cached requests from past dates are sent to the Piwik server, they will need to be inserted directly into the Piwik server's archives. This involves inserting the new requests and marking the date the requests were made for re-archiving by Piwik. In the PHP folder, there is a server-side script called `addcachedrequests.php` that will handle this process for you. All you need to get it working is to edit three variables in it and make the script publicly accessible on your server. <b><i>Note its public URL for the `PIWIK_CACHER_URL` variable in your `_piwikCONFIG_()` script.</i></b>
+When cached requests from past dates are sent to the Piwik server, they will need to be inserted directly into the Piwik server's archives. This involves inserting the new requests and marking the date the requests were made for re-archiving by Piwik. In the PHP folder, there is a server-side script called `addcachedrequests.php` that will handle this process for you. All you need to get it working is to edit three variables in it and make the script publicly accessible on your server. <i>Note its public URL for the `PIWIK_CACHER_URL` variable in your `_piwikCONFIG_()` script.</i>
 
 * `$piwikAuthToken` - The authentication token of a Piwik super user. <i><b>NOTE: You should pass this value in from an included script that is not publicly accessible for added security.</b></i>
-* `$gmAuthSalt` - Salt for client authentication with this script. This is the salt string that your game uses for authentication with this script. <b><i>See `_Piwik_CacherSalt` in your `_piwikCONFIG_()` script.</i></b>
+* `$gmAuthSalt` - Salt for client authentication with this script. This is the salt string that your game uses for authentication with this script. <i>See `_Piwik_CacherSalt` in your `_piwikCONFIG_()` script.</i>
 * `$piwikURL` - Full public URL to piwik.php file in your Piwik installation.
 
 # Method Documentation
