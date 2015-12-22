@@ -18,6 +18,8 @@ Piwik (https://piwik.org) is a nice open source alternative to something like Go
 
 If you have everything set up correctly, the extension will send a tracking request to your Piwik server when your game starts that will include various details about the device the game is running on.
 
+Check out the demo project (`GMS_PiwikAnalytics_DEMO.gmx`) to see an up-and-running live example of this wrapper in action. Right now it is set up to interface with a configured site on my Piwik server. You can login to the demo server at http://pc01.prisamcode.net/piwik with the username `GMDemoer` and password `PiwikWrapper15`. <i>Do NOT abuse the Piwik server and intentionally flood it with requests</i>, otherwise I will have to take down the live demo and no one will be able to use it to learn.
+
 # Setting up PHP Cached Request Processor
 When cached requests from past dates are sent to the Piwik server, they will need to be inserted directly into the Piwik server's archives. This involves inserting the new requests and marking the date the requests were made for re-archiving by Piwik. In the PHP folder, there is a server-side script called `addcachedrequests.php` that will handle this process for you. All you need to get it working is to edit three variables in it and make the script publicly accessible on your server. <i>Note its public URL for the `PIWIK_CACHER_URL` variable in your `_piwikCONFIG_()` script.</i>
 
