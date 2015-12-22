@@ -25,8 +25,8 @@ When cached requests from past dates are sent to the Piwik server, they will nee
 * `$gmAuthSalt` - Salt for client authentication with this script. This is the salt string that your game uses for authentication with this script. <i>See `_Piwik_CacherSalt` in your `_piwikCONFIG_()` script.</i>
 * `$piwikURL` - Full public URL to piwik.php file in your Piwik installation.
 
-# Method Documentation
-Once you have the extension set up, tracking analytics in your game to your Piwik server is a piece of cake using the scripts below which can be called by any object! <i>None of the following methods return anything, just FYI.</i>
+# Script Documentation
+Once you have the extension set up, tracking analytics in your game to your Piwik server is a piece of cake using the scripts below which can be called by any object! <i>None of the following scripts return anything, just FYI.</i>
 
 * <b>`piwikTrackAction( action )`</b> - Send Piwik an action string to track.
 	* `action` - The title of the action being tracked.
