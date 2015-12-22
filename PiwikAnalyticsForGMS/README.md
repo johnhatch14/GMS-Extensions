@@ -2,7 +2,7 @@
 Piwik (https://piwik.org) is a nice open source alternative to something like Google Analytics when it comes to collecting data about your app's users. That's why I decided to write this small yet useful GameMaker:Studio wrapper for Piwik's RESTful tracking API which should work cross-platform. It also caches events that occurred offline for later upload! 
 
 # Getting Started
-* To get Piwik implemented in your GM:S game, you'll first need to have Piwik installed and running on your web server (https://piwik.org/docs/installation/)
+* To get Piwik implemented in your GM:S game, you'll first need to have Piwik installed and running on your web server (https://piwik.org/docs/installation/) and have a Piwik site set up specifically for your game.
 * Import the extension file `GMS_PiwikAnalytics.gmez` into your GM:S project.
 * Customize these variables in the GML script entitled `_piwikCONFIG_` to fit your Piwik installation and preferences:
 	* `PIWIK_API_URL` must be the full public URL to your Piwik installation's `piwik.php` file.
@@ -18,9 +18,15 @@ Piwik (https://piwik.org) is a nice open source alternative to something like Go
 
 If you have everything set up correctly, the extension will send a tracking request to your Piwik server when your game starts that will include various details about the device the game is running on.
 
-# Method Documentation
+# Setting up PHP Cached Request Processor
+When cached requests from past dates are sent to the Piwik server, they will need to be inserted directly into the Piwik server's archives. This involves inserting the new requests and marking the date the requests were made for re-archiving by Piwik. In the PHP folder, there is a server-side script called `addcachedrequests.php` that will handle this process for you. All you need to get it working is to edit three variables in it and make the script publicly accessible on your server. <b><i>Note its public URL for the `PIWIK_CACHER_URL` variable in your `_piwikCONFIG_()` script.</i></b>
 
-Once you have the extension set up, tracking analytics in your game to Piwik is a piece of cake using the scripts below which can be called by any object! <i>None of the following methods return anything, just FYI.</i>
+* `$piwikAuthToken` - The authentication token of a Piwik super user. <i><b>NOTE: You should pass this value in from an included script that is not publicly accessible for added security.</b></i>
+* `$gmAuthSalt` - Salt for client authentication with this script. This is the salt string that your game uses for authentication with this script. <b><i>See `_Piwik_CacherSalt` in your `_piwikCONFIG_()` script.</i></b>
+* `$piwikURL` - Full public URL to piwik.php file in your Piwik installation.
+
+# Method Documentation
+Once you have the extension set up, tracking analytics in your game to your Piwik server is a piece of cake using the scripts below which can be called by any object! <i>None of the following methods return anything, just FYI.</i>
 
 * <b>`piwikTrackAction( action )`</b> - Send Piwik an action string to track.
 	* `action` - The title of the action being tracked.
